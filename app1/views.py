@@ -194,12 +194,21 @@ def cerrarSesion(request):
 """
 
 @login_required(login_url='/')
+
 def posts_mascota(request,mascota_id):
     mascota = Mascota.objects.get(id=mascota_id)
     if request.method == 'POST':
-        form = PostMascotaForm (request.POST)
+        form = PostMascotaForm (request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            datos = form.cleaned_data
+            post = PostMascota(
+                mascota = mascota,
+                titulo = datos['titulo'],
+                descripcion = datos['descripcion'],
+                fecha = datos['fecha'],
+                foto = datos['foto']
+            )
+            post.save()
             return HttpResponseRedirect(reverse('app1:home'))
     else:
         form = PostMascotaForm()
@@ -209,3 +218,5 @@ def posts_mascota(request,mascota_id):
         'form':form,
         'posts': posts
     })
+
+

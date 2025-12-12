@@ -86,7 +86,7 @@ class PostMascotaForm(forms.ModelForm):
 
     def clean_descripcion(self):
         descripcion = self.cleaned_data.get('descripcion')
-        if not descripcion.strip().len() >= 20:
+        if not len(descripcion.strip()) >= 20:
             raise forms.ValidationError("La descripción debe tener como mínimo 20 caracteres")
         return descripcion.strip()
     
