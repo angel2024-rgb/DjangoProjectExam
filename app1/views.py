@@ -204,7 +204,7 @@ def posts_mascota(request,mascota_id):
     else:
         form = PostMascotaForm()
     posts = PostMascota.objects.filter(mascota = mascota)
-    return render(request,'crearTipo.html',{
+    return render(request,'posts_mascota.html',{
         'mascota':mascota,
         'form':form,
         'posts': posts
