@@ -58,24 +58,30 @@ class PostMascotaForm(forms.ModelForm):
         fields = ['titulo', 'descripcion', 'fecha', 'foto']
 
         widgets = {
-            'titulo': forms.TextInput(attrs={
+            'titulo': forms.Textarea(attrs={
                 'class': 'form-control',
-                'placeholder': 'Ej. Historia de mi mascota Maíz'
+                'placeholder': 'Ej. Historia de mi mascota Maíz',
+                'rows':1
             }),
             'descripcion': forms.Textarea(attrs={
                 'class':'form-control',
                 'placeholder':'Ej. Esta descripcion debe tener como minimo 20 caracteres',
                 'rows':3
             }), 
-            'fecha': forms.Textarea(attrs={
+            'fecha': forms.DateInput(attrs={
+                'type':'date'
+            }),
+            'foto': forms.FileInput(attrs={
                 'class':'form-control',
-            }) 
+                'type':'file'
+            })
         }
 
         labels = {
             'titulo':'Titulo del posteo',
             'descripcion': 'Descripcion del posteo',
-            'fecha': 'Fecha de posteo'
+            'fecha': 'Fecha de posteo',
+            'foto': 'Cargar imagen de la mascota'
         }
 
     def clean_descripcion(self):

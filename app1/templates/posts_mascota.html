@@ -75,6 +75,11 @@
         {% endif %}
 
         <div class="mb-3">
+          {{ form.titulo.label_tag }}
+          {{ form.titulo }}
+        </div>
+
+        <div class="mb-3">
           {{ form.descripcion.label_tag }}
           {{ form.descripcion }}
           {% if form.descripcion.errors %}
@@ -92,6 +97,11 @@
               {{ form.fecha.errors }}
             </div>
           {% endif %}
+        </div>
+
+        <div class="mb-3">
+          {{ form.foto.label_tag }}
+          {{ form.foto }}
         </div>
 
         <button type="submit" class="btn btn-primary mt-2">Guardar publicación</button>
