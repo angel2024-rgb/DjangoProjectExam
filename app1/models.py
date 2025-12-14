@@ -49,3 +49,6 @@ class PostMascota(models.Model):
     descripcion = models.TextField(max_length=256,null=True,blank=True)
     fecha = models.DateField()
     foto = models.ImageField(upload_to='mascotas/')
+
+    def __str__(self):
+        return f"{self.mascota.nombre}"

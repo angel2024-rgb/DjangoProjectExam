@@ -60,13 +60,15 @@ class PostMascotaForm(forms.ModelForm):
         widgets = {
             'titulo': forms.Textarea(attrs={
                 'class': 'form-control',
-                'placeholder': 'Ej. Historia de mi mascota Maíz',
-                'rows':1
+                'placeholder': 'Ej. Primer posteo',
+                'rows':1,
+                'required' : True
             }),
             'descripcion': forms.Textarea(attrs={
                 'class':'form-control',
-                'placeholder':'Ej. Esta descripcion debe tener como minimo 20 caracteres',
-                'rows':3
+                'placeholder':'Ej. Hoy Zorrito estuvo en el parque jugando con las palomas',
+                'rows':3,
+                'required' : True
             }), 
             'fecha': forms.DateInput(attrs={
                 'type':'date'
